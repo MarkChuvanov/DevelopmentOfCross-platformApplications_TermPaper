@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="246.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.NewClient">
+   <children>
+      <HBox prefHeight="173.0" prefWidth="776.0">
+         <children>
+            <VBox prefHeight="218.0" prefWidth="242.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Введите фамилию" />
+                  <TextField fx:id="tfNewClientSurname" />
+                  <Label style="-fx-font-weight: bold;" text="Введите имя">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="tfNewClientName" />
+                  <Label style="-fx-font-weight: bold;" text="Введите отчество">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="tfNewClientPatronymic" />
+               </children>
+            </VBox>
+            <VBox prefHeight="218.0" prefWidth="242.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Выберите дату рождения" />
+                  <DatePicker fx:id="dpNewClientDateOfBirth" prefHeight="26.0" prefWidth="247.0" />
+                  <Label style="-fx-font-weight: bold;" text="Введите серию паспорта">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="tfNewClientPassportSeries" />
+                  <Label style="-fx-font-weight: bold;" text="Введите номер паспорта">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="tfNewClientPassportNumber" />
+               </children>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="218.0" prefWidth="242.0">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Укажите место жительства" />
+                  <TextArea fx:id="taNewClientPlaceOfResidence" prefHeight="122.0" prefWidth="243.0" wrapText="true" />
+               </children>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#onAddNewClient" text="Добавить">
+         <VBox.margin>
+            <Insets left="340.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets left="15.0" top="15.0" />
+   </padding>
+</VBox>

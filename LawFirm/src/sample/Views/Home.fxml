@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="657.0" prefWidth="899.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Home">
+   <children>
+      <TabPane prefHeight="657.0" prefWidth="899.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+            <Tab text="Дела">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <MenuBar AnchorPane.leftAnchor="15.0">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Дело">
+                              <items>
+                                <MenuItem mnemonicParsing="false" onAction="#onAddCase" text="Добавить новое дело" />
+                                    <MenuItem fx:id="miAddAdditionalLawyer" mnemonicParsing="false" onAction="#onAddAdditionalLawyer" text="Назначить дополнительного адвоката" />
+                                    <MenuItem mnemonicParsing="false" onAction="#onSelectCases" text="Отобрать дела за выбранный период" />
+                              </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Процедура">
+                              <items>
+                                <MenuItem fx:id="miAddCaseLegalProcedure" mnemonicParsing="false" onAction="#onAddCaseLegalProcedure" text="Добавить новую процедуру" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
+                        <TableView fx:id="tvCases" layoutX="14.0" layoutY="26.0" prefHeight="318.0" prefWidth="634.0">
+                          <columns>
+                            <TableColumn fx:id="tcCaseNumber" prefWidth="75.0" text="Номер дела" />
+                            <TableColumn fx:id="tcCaseOpeningDate" prefWidth="75.0" text="Дата открытия" />
+                              <TableColumn fx:id="tcCaseClosingDate" prefWidth="75.0" text="Дата закрытия" />
+                              <TableColumn fx:id="tcCaseStatus" prefWidth="75.0" text="Статус" />
+                              <TableColumn fx:id="tcCaseResult" prefWidth="75.0" text="Результат" />
+                              <TableColumn fx:id="tcCaseCosts" prefWidth="75.0" text="Стоимость" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="tvCaseLegalProcedures" layoutX="14.0" layoutY="349.0" prefHeight="270.0" prefWidth="634.0">
+                            <placeholder>
+                                <Label text="" />
+                            </placeholder>
+                            <columns>
+                              <TableColumn fx:id="tcCaseLegalProcedureDate" prefWidth="75.0" text="Дата оказания процедуры" />
+                              <TableColumn fx:id="tcCaseLegalProcedureResult" prefWidth="75.0" text="Результат оказания процедуры" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label layoutX="665.0" layoutY="26.0" text="Номер дела" />
+                        <TextField fx:id="tfCaseNumber" editable="false" layoutX="665.0" layoutY="44.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="70.0" text="Дата открытия" />
+                        <TextField fx:id="tfCaseOpeningDate" editable="false" layoutX="665.0" layoutY="88.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="114.0" text="Дата закрытия" />
+                        <TextField fx:id="tfCaseClosingDate" editable="false" layoutX="665.0" layoutY="132.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="158.0" text="Статус" />
+                        <TextField fx:id="tfCaseStatus" editable="false" layoutX="665.0" layoutY="176.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="202.0" text="Результат" />
+                        <ComboBox fx:id="cbCaseResult" layoutX="664.0" layoutY="220.0" prefHeight="26.0" prefWidth="218.0" />
+                        <Label layoutX="665.0" layoutY="246.0" text="Стоимость" />
+                        <TextField fx:id="tfCaseCosts" editable="false" layoutX="665.0" layoutY="264.0" prefHeight="26.0" prefWidth="218.0" />
+                        <Label layoutX="664.0" layoutY="454.0" text="Дата оказания процедуры" />
+                        <Label layoutX="666.0" layoutY="497.0" text="Результат оказания процедуры" />
+                        <TextArea fx:id="taCaseLegalProcedureResult" layoutX="664.0" layoutY="514.0" prefHeight="74.0" prefWidth="218.0" wrapText="true" />
+                        <Label layoutX="666.0" layoutY="294.0" text="Адвокаты, занятые в деле" />
+                        <ListView fx:id="lvCaseLawyers" layoutX="665.0" layoutY="312.0" prefHeight="108.0" prefWidth="218.0" />
+                        <Button fx:id="bEditCase" layoutX="706.0" layoutY="427.0" mnemonicParsing="false" onAction="#onEditCase" prefHeight="26.0" prefWidth="136.0" text="Сохранить" />
+                        <TextField fx:id="tfCaseLegalProcedureDate" editable="false" layoutX="664.0" layoutY="471.0" prefHeight="26.0" prefWidth="218.0" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Клиенты">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <MenuBar AnchorPane.leftAnchor="15.0">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Клиент">
+                              <items>
+                                <MenuItem mnemonicParsing="false" onAction="#onAddClient" text="Добавить нового клиента" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
+                        <TableView fx:id="tvClients" layoutX="14.0" layoutY="26.0" prefHeight="318.0" prefWidth="634.0">
+                          <columns>
+                            <TableColumn fx:id="tcClientSurname" prefWidth="75.0" text="Фамилия" />
+                            <TableColumn fx:id="tcClientName" prefWidth="75.0" text="Имя" />
+                              <TableColumn fx:id="tcClientPatronymic" prefWidth="75.0" text="Отчество" />
+                              <TableColumn fx:id="tcClientPassportSeries" prefWidth="75.0" text="Серия паспорта" />
+                              <TableColumn fx:id="tcClientPassportNumber" prefWidth="75.0" text="Номер паспорта" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label layoutX="665.0" layoutY="26.0" text="Фамилия" />
+                        <TextField fx:id="tfClientSurname" layoutX="665.0" layoutY="44.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="70.0" text="Имя" />
+                        <TextField fx:id="tfClientName" layoutX="665.0" layoutY="88.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="114.0" text="Отчество" />
+                        <TextField fx:id="tfClientPatronymic" layoutX="665.0" layoutY="132.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="158.0" text="Дата рождения" />
+                        <TextField fx:id="tfClientDateOfBirth" editable="false" layoutX="665.0" layoutY="176.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="202.0" text="Серия паспорта" />
+                        <TextField fx:id="tfClientPassportSeries" layoutX="665.0" layoutY="220.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="246.0" text="Номер паспорта" />
+                        <TextField fx:id="tfClientPassportNumber" layoutX="665.0" layoutY="264.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="665.0" layoutY="290.0" text="Место рождения" />
+                        <TextArea fx:id="taClientPlaceOfResidence" layoutX="665.0" layoutY="308.0" prefHeight="85.0" prefWidth="218.0" wrapText="true" />
+                        <Button layoutX="706.0" layoutY="401.0" mnemonicParsing="false" onAction="#onEditClient" prefHeight="26.0" prefWidth="136.0" text="Сохранить" />
+                        <TableView fx:id="tvClientCases" layoutX="14.0" layoutY="351.0" prefHeight="268.0" prefWidth="634.0">
+                            <placeholder>
+                                <Label text="" />
+                            </placeholder>
+                            <columns>
+                              <TableColumn fx:id="tcClientCaseNumber" prefWidth="75.0" text="Номер дела" />
+                              <TableColumn fx:id="tcClientCaseOpeningDate" prefWidth="75.0" text="Дата открытия" />
+                              <TableColumn fx:id="tcClientCaseClosingDate" prefWidth="75.0" text="Дата закрытия" />
+                              <TableColumn fx:id="tcClientCaseStatus" prefWidth="75.0" text="Статус" />
+                              <TableColumn fx:id="tcClientCaseResult" prefWidth="75.0" text="Результат" />
+                              <TableColumn fx:id="tcClientCaseCosts" prefWidth="75.0" text="Стоимость" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Адвокаты">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <MenuBar AnchorPane.leftAnchor="15.0">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Адвокат">
+                              <items>
+                                <MenuItem mnemonicParsing="false" onAction="#onAddLawyer" text="Добавить нового адвоката" />
+                                    <MenuItem mnemonicParsing="false" onAction="#onTakeStockOfActivity" text="Подвести итоги деятельности адвоката" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
+                        <TableView fx:id="tvLawyers" layoutX="15.0" layoutY="26.0" prefHeight="318.0" prefWidth="593.0">
+                          <columns>
+                            <TableColumn fx:id="tcLawyerSurname" prefWidth="75.0" text="Фамилия" />
+                            <TableColumn fx:id="tcLawyerName" prefWidth="75.0" text="Имя" />
+                              <TableColumn fx:id="tcLawyerPatronymic" prefWidth="175.20001220703125" text="Отчество" />
+                              <TableColumn fx:id="tcLawyerLengthOfService" prefWidth="126.39996337890625" text="Стаж работы, лет" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label layoutX="622.0" layoutY="26.0" text="Фамилия" />
+                        <TextField fx:id="tfLawyerSurname" layoutX="622.0" layoutY="44.0" prefHeight="26.0" prefWidth="266.0" />
+                        <Label layoutX="622.0" layoutY="70.0" text="Имя" />
+                        <TextField fx:id="tfLawyerName" layoutX="622.0" layoutY="88.0" prefHeight="26.0" prefWidth="265.0" />
+                        <Label layoutX="622.0" layoutY="114.0" text="Отчество" />
+                        <TextField fx:id="tfLawyerPatronymic" layoutX="622.0" layoutY="132.0" prefHeight="26.0" prefWidth="265.0" />
+                        <Label layoutX="622.0" layoutY="158.0" text="Статус" />
+                        <ComboBox fx:id="cbLawyerStatus" layoutX="622.0" layoutY="176.0" prefHeight="26.0" prefWidth="265.0" />
+                        <TableView fx:id="tvStockOActivity" layoutX="622.0" layoutY="241.0" prefHeight="130.0" prefWidth="270.0">
+                            <placeholder>
+                                <Label text="" />
+                            </placeholder>
+                          <columns>
+                            <TableColumn fx:id="tcIndicator" prefWidth="188.79998779296875" text="Показатель" />
+                            <TableColumn fx:id="tcValue" text="Значение" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button fx:id="bEditLawyer" layoutX="687.0" layoutY="208.0" mnemonicParsing="false" onAction="#onEditLawyer" prefHeight="26.0" prefWidth="136.0" text="Сохранить" />
+                        <TableView fx:id="tvLawyerCases" layoutX="15.0" layoutY="350.0" prefHeight="268.0" prefWidth="593.0">
+                           <columns>
+                              <TableColumn fx:id="tcLawyerCaseNumber" prefWidth="75.0" text="Номер дела" />
+                              <TableColumn fx:id="tcLawyerCaseOpeningDate" prefWidth="75.0" text="Дата открытия" />
+                              <TableColumn fx:id="tcLawyerCaseClosingDate" prefWidth="75.0" text="Дата закрытия" />
+                              <TableColumn fx:id="tcLawyerCaseStatus" prefWidth="75.0" text="Статус" />
+                              <TableColumn fx:id="tcLawyerCaseResult" prefWidth="75.0" text="Результат" />
+                              <TableColumn fx:id="tcLawyerCaseCosts" prefWidth="75.0" text="Стоимость" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Прейкурант процедур">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <MenuBar AnchorPane.leftAnchor="15.0">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Юридическая процедура">
+                              <items>
+                                <MenuItem mnemonicParsing="false" onAction="#onAddLegalProcedure" text="Добавить новую процедуру" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
+                        <TableView fx:id="tvLegalProcedures" layoutX="15.0" layoutY="26.0" prefHeight="380.0" prefWidth="634.0">
+                          <columns>
+                            <TableColumn fx:id="tcLegalProcedureName" prefWidth="75.0" text="Название процедуры" />
+                            <TableColumn fx:id="tcLegalProcedureCosts" prefWidth="75.0" text="Стоимость процедуры" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label layoutX="667.0" layoutY="26.0" text="Название процедуры" />
+                        <TextField fx:id="tfLegalProcedureName" layoutX="667.0" layoutY="44.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Label layoutX="667.0" layoutY="70.0" text="Стоимость процедуры" />
+                        <TextField fx:id="tfLegalProcedureCosts" layoutX="667.0" layoutY="88.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Button layoutX="708.0" layoutY="120.0" mnemonicParsing="false" onAction="#onEditLegalProcedure" prefHeight="26.0" prefWidth="136.0" text="Сохранить" />
+                        <TableView fx:id="tvBackgroundInformation" layoutX="15.0" layoutY="413.0" prefHeight="200.0" prefWidth="634.0">
+                          <columns>
+                            <TableColumn fx:id="tcCaseResultType" prefWidth="75.0" text="Результат дела" />
+                            <TableColumn fx:id="tcPremiumRate" prefWidth="75.0" text="Размер премиальных (неустойки)" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label layoutX="667.0" layoutY="146.0" text="Размер премиальных (неустойки)" />
+                        <TextField fx:id="tfPremiumRate" layoutX="667.0" layoutY="164.0" prefHeight="26.0" prefWidth="217.0" />
+                        <Button layoutX="708.0" layoutY="196.0" mnemonicParsing="false" onAction="#onEditBackgroundInformationType" prefHeight="26.0" prefWidth="136.0" text="Сохранить" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TabPane>
+   </children>
+   <cursor>
+      <Cursor fx:constant="S_RESIZE" />
+   </cursor>
+</AnchorPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="167.0" prefWidth="356.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.NewLegalProcedure">
+    <children>
+        <Label style="-fx-font-weight: bold;" text="Введите название процедуры" />
+        <TextField fx:id="tfNewLegalProcedureName" />
+        <Label style="-fx-font-weight: bold;" text="Введите стоимость процедуры">
+            <VBox.margin>
+                <Insets top="5.0" />
+            </VBox.margin>
+        </Label>
+        <TextField fx:id="tfNewLegalProcedureCosts" />
+        <Button mnemonicParsing="false" onAction="#onAddNewLegalProcedure" text="Добавить">
+            <VBox.margin>
+                <Insets left="130.0" top="17.0" />
+            </VBox.margin>
+        </Button>
+    </children>
+    <padding>
+        <Insets left="15.0" right="15.0" top="15.0" />
+    </padding>
+</VBox>
